@@ -55,4 +55,16 @@ describe("siteshot-utils", function() {
 			expect(pageName).to.equal('test/test2');
 		});
 	});
+
+	describe("when getting name from domain", function() {
+		it("can get name from valid domain", function() {
+			var name = lib.NameFromDomain("http://siteshot.io");
+			expect(name).to.equal('siteshot.io');
+		});
+
+		it("can get name when https domain", function() {
+			var name = lib.NameFromDomain("https://siteshot.io");
+			expect(name).to.equal('siteshot.io');
+		});
+	})
 });
